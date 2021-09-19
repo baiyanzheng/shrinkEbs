@@ -27,7 +27,7 @@ Shrink EBS disk of system and data volume on EC2
 
 # Release Notes
 
-## V0.1 20200814 调通版
+## V0.1 20200414 调通版
 1. 按需停止EC2，摘盘缩容并把新盘挂回后启动到原状态
 1. 
 1. 启动命令行：python main -i|-s|-e|-d tag=value
@@ -37,24 +37,24 @@ Shrink EBS disk of system and data volume on EC2
 * -d 对具有对应标签的快照缩容， -e/-d都不指定时全部缩容，等同于都指定
 * tag=value指定缩容设备所需的标签和取值
 
-## V0.2 20200814 
+## V0.2 20200414 
 1. [o]改用全局对象cfg.volumeRepository维护缩容盘列表 
 2. [r]用量超过70%的盘不缩，提高效率
 3. [r]缩容后EC2x虚机启动失败时，恢复原盘启动
 
-## V0.2 20200815
+## V0.2 20200415
 1. [o]改用argparse包优化命令行参数处理，支持AWS各种filter条件(tag:name形式表示tag)
 1. [r]对符合条件的AMI缩容成磁盘，通过tag:ami记录对应AMI
 1. [r]创建EBS盘改为动态传参
 1. [r]对快照缩容
 
-## V0.2 20200816
+## V0.2 20200416
 1. [r]增加master节点程序，支持并行处理：为每一台需要缩容的EC2启动一台工作节点
 1. [o]运行日志写入文件后，部署CloudWatch Agent采集到CloudWatch log中集中审查
 1. [o]增加安装脚本和说明
 1. [r]无法mount的源文件系统用dd复制
 
-## V0.3 20200816完整版
+## V0.3 20200416完整版
 1. [r]系统盘制作Boot loader(Grub2), 原启动盘支持grub1, grub2
 1. [b]rsync无法复制目录t属性[改成-a -r]
 1. [b]线程启动前就退回不缩的盘， task为空
