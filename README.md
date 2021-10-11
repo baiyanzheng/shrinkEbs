@@ -25,6 +25,9 @@ Shrink EBS disk of system and data volume on EC2
 1. 启动原EC2
 1. 源盘卸下后不自动删除
 
+# 入口程序
+执行shrinkEbs.py [-i 交互式，虚机是否停机缩容要求交互式确认][-e 对具有对应标签的EC2磁盘缩容][-d 对具有对应标签的快照缩容， -e/-d都不指定时全部缩容，等同于都指定][tag=value指定缩容设备所需的标签和取值]
+
 # Release Notes
 
 ## V0.1 20200414 调通版
